@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
   end
   
   config.vm.network "private_network", ip: "10.10.10.20"
-  
+  config.vm.network "forwarded_port", guest: 80, host: 5000
   config.vm.provision "ansible_local" do |a|
     a.playbook = "setup.yml"
   end

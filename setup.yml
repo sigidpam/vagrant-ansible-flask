@@ -1,8 +1,9 @@
----
 - hosts: all
-    become: yes
-    vars:
+  become: true
+  become_method: sudo
       venv_path: /home/vagrant/venv
-      requirements_path: /vagrant/requirements.txt
-    roles:
-      - {role: python}
+      requirements_path: /vagrant/requirements.txt    
+      repository_url: https://github.com/sigidpam/vagrant-ansible-flask.git
+      repository_path: /home/vagrant/
+  roles:
+      - {role: phyton}
